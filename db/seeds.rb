@@ -1,11 +1,17 @@
 # db/seeds.rb
+Review.destroy_all
+Restaurant.destroy_all
 puts 'Creating restaurants...'
 Restaurant.create!({
-  name: "Le Dindon en Laisse",
-  address: "18 Rue Beautreillis, 75004 Paris, France"
+  name: "Psi",
+  address: "Rua Luciano Cordeiro, Portugal"
 })
-Restaurant.create!({
-  name: "Neuf et Voisins",
-  address: "Van Arteveldestraat 1, 1000 Brussels, Belgium"
+restaurant = Restaurant.create!({
+  name: "Vegan Junkies",
+  address: "Rua Luciano Cordeiro, Portugal"
 })
+
+40.times do
+  Review.create(content: "very nice! very nice! very nice! very nice! very nice! very nice!", restaurant: restaurant)
+end
 puts 'Finished!'
